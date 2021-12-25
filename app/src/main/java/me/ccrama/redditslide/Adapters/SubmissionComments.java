@@ -17,6 +17,7 @@ import net.dean.jraw.util.JrawUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -25,6 +26,7 @@ import java.util.TreeMap;
 import me.ccrama.redditslide.Authentication;
 import me.ccrama.redditslide.Fragments.CommentPage;
 import me.ccrama.redditslide.LastComments;
+import me.ccrama.redditslide.SettingValues;
 import me.ccrama.redditslide.util.NetworkUtil;
 
 /**
@@ -225,10 +227,16 @@ public class SubmissionComments {
 
                 comments = new ArrayList<>();
                 Map<Integer, MoreChildItem> waiting = new HashMap<>();
+                HashSet<String> filtered = new HashSet<>();
                 commentOPs = new HashMap<>();
                 String currentOP = "";
 
                 for (CommentNode n : baseComment.walkTree()) {
+                    if (SettingValues.hideBlocked && (n.getComment().isAuthorBlocked() ||
+                            filtered.contains(n.getComment().getParentId()))) {
+                        filtered.add(n.getComment().getFullName());
+                        continue;
+                    }
                     if(n.getDepth() == 1){
                         currentOP = n.getComment().getAuthor();
                     }

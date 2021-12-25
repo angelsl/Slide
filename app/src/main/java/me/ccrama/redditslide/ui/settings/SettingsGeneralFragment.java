@@ -346,6 +346,24 @@ public class SettingsGeneralFragment<ActivityType extends AppCompatActivity & Fo
             }
         }
 
+        // Hide content by blocked users
+        {
+            SwitchCompat hideBlockedSwitch = context.findViewById(R.id.settings_general_hide_blocked);
+
+            if (hideBlockedSwitch != null) {
+                hideBlockedSwitch.setChecked(SettingValues.hideBlocked);
+                hideBlockedSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        SettingValues.hideBlocked = isChecked;
+                        SettingValues.prefs.edit()
+                                .putBoolean(SettingValues.PREF_HIDE_BLOCKED, isChecked)
+                                .apply();
+                    }
+                });
+            }
+        }
+
         {
             SwitchCompat subfolderSwitch = context.findViewById(R.id.settings_general_subfolder);
 

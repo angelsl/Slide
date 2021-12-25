@@ -164,6 +164,7 @@
     <string name="comment_delete_err">Uh oh, something went wrong</string>
     <string name="comment_delete_err_msg">Would you like to try again?</string>
     <string name="comment_deleted">[deleted]</string>
+    <string name="comment_blocked">[blocked]</string>
     <string name="comment_unsave">Unsave</string>
     <string name="comment_load_more">Load %1$d more</string>
     <string name="comment_load_more_string_new">Load %1$s more</string>
@@ -629,6 +630,8 @@
     <string name="settings_image_location">Select image/GIF save location</string>
     <string name="settings_image_location_unset">Not yet set</string>
     <string name="settings_set_image_location">Images will be saved to %s</string>
+    <string name="settings_general_hide_blocked">Hide content by blocked users</string>
+    <string name="settings_general_hide_blocked_desc">Completely hide all submissions and comments by blocked users</string>
     <string name="settings_general_immersive_mode">Immersive fullscreen mode</string>
     <string name="settings_general_immersive_mode_desc">Hide the status and navigation bars (experimental)</string>
     <string name="settings_general_title_drawer_items">Drawer Items</string>

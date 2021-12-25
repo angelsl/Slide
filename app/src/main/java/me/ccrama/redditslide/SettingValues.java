@@ -103,6 +103,7 @@ public class SettingValues {
     public static final String PREF_HIGHLIGHT_TIME            = "highlightTime";
     public static final String PREF_MUTE                      = "muted";
     public static final String PREF_LINK_HANDLING_MODE        = "linkHandlingMode";
+    public static final String PREF_HIDE_BLOCKED              = "hideBlocked";
 
     public static final String PREF_FULL_COMMENT_OVERRIDE  = "fullCommentOverride";
     public static final String PREF_ALBUM                  = "album";
@@ -209,6 +210,7 @@ public class SettingValues {
     public static int     nightStart;
     public static int     nightEnd;
     public static int     linkHandlingMode;
+    public static boolean hideBlocked;
 
     public static int previews;
 
@@ -312,6 +314,7 @@ public class SettingValues {
         imageSubfolders = prefs.getBoolean(PREF_IMAGE_SUBFOLDERS, false);
         imageDownloadButton = prefs.getBoolean(PREF_IMAGE_DOWNLOAD_BUTTON, true);
         isMuted = prefs.getBoolean(PREF_MUTE, false);
+        hideBlocked = prefs.getBoolean(PREF_HIDE_BLOCKED, false);
 
         commentVolumeNav = prefs.getBoolean(PREF_COMMENT_NAV, false);
         postNav = false;

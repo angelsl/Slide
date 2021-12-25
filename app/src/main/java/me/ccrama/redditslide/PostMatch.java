@@ -87,6 +87,8 @@ public class PostMatch {
     public static boolean doesMatch(Submission s, String baseSubreddit, boolean ignore18) {
         if (Hidden.id.contains(s.getFullName())) return true; // if it's hidden we're not going to show it regardless
 
+        if (SettingValues.hideBlocked && s.isAuthorBlocked()) return true;
+
         String title = s.getTitle();
         String body = s.getSelftext();
         String domain = s.getUrl();
@@ -194,6 +196,8 @@ public class PostMatch {
     }
 
     public static boolean doesMatch(Submission s) {
+        if (SettingValues.hideBlocked && s.isAuthorBlocked()) return true;
+
         String title = s.getTitle();
         String body = s.getSelftext();
         String domain = s.getUrl();
